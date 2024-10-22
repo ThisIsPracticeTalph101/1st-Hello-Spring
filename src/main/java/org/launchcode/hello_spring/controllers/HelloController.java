@@ -1,8 +1,7 @@
 package org.launchcode.hello_spring.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class HelloController {
@@ -18,4 +17,27 @@ public class HelloController {
     public String goodbye(){
         return "Goodbye, Spring!";
     }
+
+    @PostMapping("/duh")
+    @ResponseBody
+    public String duh(){
+        return "Duh";
+    }
+
+    //Does both get and post requests
+    @RequestMapping(value ="/hellogoodbye", method = {RequestMethod.GET, RequestMethod.POST})
+    @ResponseBody
+    public String hellogoodbye(){
+        return "Hello and Goodbye!";
+
+    }
+
+    //Handles request of the form /hola?name=LaunchCode
+    @GetMapping("/hola")
+    @ResponseBody
+    public String holaWithQueryParam(@RequestParam String name) {
+        return "Hola, " + name + "!";
+    }
+
+
 }
