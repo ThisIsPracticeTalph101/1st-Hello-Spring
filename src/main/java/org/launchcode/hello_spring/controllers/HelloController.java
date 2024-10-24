@@ -3,6 +3,8 @@ package org.launchcode.hello_spring.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+//practice from lc
+
 @Controller
 @ResponseBody
 // can add @RequestMapping up top so that every path starts with whatever you want. /example/hello
